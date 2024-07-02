@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="imagenes/pokemon-96.png" type="image/png" />
+    <title>Pokédex</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="imagenes/Pokemon-Logo.png" alt="Pokemon-Logo" />
+      <input type="text" class="search" id="search"  placeholder="Search by type..." />
+      <div class="buscador">
+        <div class="buscador-tipo">
+          <img
+            src="imagenes/pokeball.svg"
+            alt="buscador-icono"
+            class="buscador-icono"
+          />
+        </div>
+        <div class="filtro-selector">
+          <p class="body2-fonts">filtrar por:</p>
+          <div class="filtro">
+            <input
+              type="radio"
+              name="filtros"
+              id="number"
+              value="number"
+              checked
+            />
+            <label for="number" class="body3-fonts">Number</label>
+          </div>
+          <div>
+            <input type="radio" name="filtros" value="name" id="name" />
+            <label for="name" class="body3-fonts">Name</label>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="todos">
+        <div class="pokemon-todos" id="listaPokemon"></div>
+        <!-- Los pokemnon se generan aquí -->
+      </div>
+      <div id="not-found-message">Pokemon not found</div>
+    </main>
+    <script src="pokemon.js"></script>
+  </body>
+</html>
