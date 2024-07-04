@@ -1,8 +1,9 @@
-const MAX_POKEMON = 500;
+const MAX_POKEMON = 100;
 const listaPokemon = document.querySelector("#listaPokemon");
-const searchInput = document.querySelector("#search");
+const searchInput = document.querySelector("#search-input");
 const numberFilter = document.querySelector("#number");
 const nameFilter = document.querySelector("#name");
+const typeFilter = document.querySelector("#type");
 const notFoundMessage = document.querySelector("#not-found-message");
 
 let allPokemons = [];
@@ -47,6 +48,7 @@ function displayPokemons(pokemonList) {
           "data-types",
           data.types.map((type) => type.type.name).join(" ")
         );
+        pokemon.types = data.types.map((type) => type.type.name); //filtro tipos
 
         let tipos = data.types
           .map(
@@ -56,8 +58,13 @@ function displayPokemons(pokemonList) {
 
         listItem.innerHTML = `
           <p class="pokemon-id-back">#${pokemonID}</p>
-          <div class="pokemon-imagen">
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonID}.png" alt="${pokemon.name}" />
+          <div class="pokemon-imagen-container">
+            <div class="pokemon-imagen pokemon-front" id="pokemon-imagen-id">
+              <img class="imagen" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonID}.png" alt="${pokemon.name}" />
+            </div>
+            <div class="pokemon-imagen pokemon-back" id="pokemon-imagen-id">
+              <img class= "imagen" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokemonID}.png" alt="${pokemon.name}" />
+            </div>
           </div>
           <div class="pokemon-info">
               <div class="nombre-contenedor">
@@ -82,3 +89,43 @@ function displayPokemons(pokemonList) {
   });
 }
 
+searchInput.addEventListener("keyup", handleSearch);
+
+
+
+function handleSearch() {
+  const searchTerm = searchInput.value.toLowerCase();
+  let filteredPokemons;
+
+  if (numberFilter.checked) {
+    filteredPokemons = allPokemons.filter((pokemon) => {
+      const pokemonID = pokemon.url.split("/")[6];
+      return pokemonID.startsWith(searchTerm);
+    });
+  } else if (nameFilter.checked) {
+    filteredPokemons = allPokemons.filter((pokemon) =>
+      pokemon.name.toLowerCase().startsWith(searchTerm)
+    );
+  } else if (typeFilter.checked) { // Filtrar por tipo 
+    filteredPokemons = allPokemons.filter((pokemon) =>
+      pokemon.types.some((type) => type.startsWith(searchTerm))
+    );
+  } 
+    displayPokemons(filteredPokemons);
+
+
+  if (filteredPokemons.length === 0) {
+    notFoundMessage.style.display = "block";
+  } else {
+    notFoundMessage.style.display = "none";
+  }
+}
+
+const closeButton = document.querySelector(".search-close-icon");
+closeButton.addEventListener("click", clearSearch);
+
+function clearSearch() {
+  searchInput.value = "";
+  displayPokemons(allPokemons);
+  notFoundMessage.style.display = "none";
+}
