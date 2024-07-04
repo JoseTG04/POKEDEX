@@ -9,8 +9,22 @@
   </head>
   <body>
     <header>
-      <img class="logo" src="imagenes/Pokemon-Logo.png" alt="Pokemon-Logo" />
-      <input type="text" class="search" id="search"  placeholder="Search by type..." />
+      <!-- <div class="logo"> -->
+      <img class="logo-pokemon" src="imagenes/Pokemon-Logo.png" alt="Pokemon-Logo" class="logo-pokemon" />
+      <!-- </div> -->
+      <div class="search" id="search">
+        <input
+          type="text"
+          class="search-input"
+          id="search-input"
+          placeholder="Search by type..."
+        />
+        <img
+          src="imagenes/close-icon.png"
+          alt="close-icon"
+          class="search-close-icon"
+        />
+      </div>
       <div class="buscador">
         <div class="buscador-tipo">
           <img
@@ -34,6 +48,10 @@
           <div>
             <input type="radio" name="filtros" value="name" id="name" />
             <label for="name" class="body3-fonts">Name</label>
+          </div>
+          <div> 
+            <input type="radio" name="filtros" value="type" id="type" />
+            <label for="type" class="body3-fonts">Type</label>
           </div>
         </div>
       </div>
