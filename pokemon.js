@@ -1,4 +1,4 @@
-const MAX_POKEMON = 100;
+const MAX_POKEMON = 200;
 const listaPokemon = document.querySelector("#listaPokemon");
 const searchInput = document.querySelector("#search-input");
 const numberFilter = document.querySelector("#number");
@@ -63,7 +63,7 @@ function displayPokemons(pokemonList) {
               <img class="imagen" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonID}.png" alt="${pokemon.name}" />
             </div>
             <div class="pokemon-imagen pokemon-back" id="pokemon-imagen-id">
-              <img class= "imagen" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokemonID}.png" alt="${pokemon.name}" />
+              <img class= "imagen" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonID}.png" alt="${pokemon.name}" />
             </div>
           </div>
           <div class="pokemon-info">

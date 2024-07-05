@@ -71,7 +71,7 @@ header .logo-pokemon {
 }
 
 .search-input {
-  /* margin-left: 47rem; */
+  margin-left: 47rem;
   margin-bottom: 2rem;
   padding: 10px;
   width: 80%;
@@ -171,8 +171,14 @@ main {
   top: 10;  
   left: 15;
   opacity: 0;
-  transition: 0.5s;
+  transition: opacity 0.5s ease;
 }
+
+.pokemon-imagen-container:hover .pokemon-front {
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
 
 .pokemon-imagen-container:hover .pokemon-back {
   opacity: 1;
