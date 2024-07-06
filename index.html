@@ -10,14 +10,20 @@
   <body>
     <header>
       <!-- <div class="logo"> -->
-      <img class="logo-pokemon" src="imagenes/Pokemon-Logo.png" alt="Pokemon-Logo" class="logo-pokemon" />
+      <img
+        class="logo-pokemon"
+        src="imagenes/Pokemon-Logo.png"
+        alt="Pokemon-Logo"
+        class="logo-pokemon"
+      />
       <!-- </div> -->
       <div class="search" id="search">
         <input
+          autofocus
           type="text"
           class="search-input"
           id="search-input"
-          placeholder="Search by type..."
+          placeholder="Search..."
         />
         <img
           src="imagenes/close-icon.png"
@@ -25,33 +31,28 @@
           class="search-close-icon"
         />
       </div>
-      <div class="buscador">
-        <div class="buscador-tipo">
-          <img
-            src="imagenes/pokeball.svg"
-            alt="buscador-icono"
-            class="buscador-icono"
-          />
-        </div>
-        <div class="filtro-selector">
-          <p class="body2-fonts">filtrar por:</p>
-          <div class="filtro">
-            <input
-              type="radio"
-              name="filtros"
-              id="number"
-              value="number"
-              checked
-            />
-            <label for="number" class="body3-fonts">Number</label>
-          </div>
-          <div>
-            <input type="radio" name="filtros" value="name" id="name" />
-            <label for="name" class="body3-fonts">Name</label>
-          </div>
-          <div> 
-            <input type="radio" name="filtros" value="type" id="type" />
-            <label for="type" class="body3-fonts">Type</label>
+      <div class="filtro-selector">
+        <div class="dropdown">
+          <button class="dropbtn">Filtrar por:</button>
+          <div class="dropdown-content">
+            <div class="filtro">
+              <input
+                type="radio"
+                name="filtros"
+                id="number"
+                value="number"
+                checked
+              />
+              <label for="number" class="body3-fonts">Number</label>
+            </div>
+            <div>
+              <input type="radio" name="filtros" value="name" id="name" />
+              <label for="name" class="body3-fonts">Name</label>
+            </div>
+            <div>
+              <input type="radio" name="filtros" value="type" id="type" />
+              <label for="type" class="body3-fonts">Type</label>
+            </div>
           </div>
         </div>
       </div>
@@ -63,7 +64,6 @@
       </div>
       <div id="not-found-message">Pokemon not found</div>
     </main>
-    <img src="./imagenes/pokedex.svg" alt="pokedex" class="detail-bg" />
     <script src="pokemon.js"></script>
   </body>
 </html>
