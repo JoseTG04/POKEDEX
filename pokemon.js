@@ -91,8 +91,6 @@ function displayPokemons(pokemonList) {
 
 searchInput.addEventListener("keyup", handleSearch);
 
-
-
 function handleSearch() {
   const searchTerm = searchInput.value.toLowerCase();
   let filteredPokemons;
@@ -106,13 +104,13 @@ function handleSearch() {
     filteredPokemons = allPokemons.filter((pokemon) =>
       pokemon.name.toLowerCase().startsWith(searchTerm)
     );
-  } else if (typeFilter.checked) { // Filtrar por tipo 
+  } else if (typeFilter.checked) {
+    // Filtrar por tipo
     filteredPokemons = allPokemons.filter((pokemon) =>
       pokemon.types.some((type) => type.startsWith(searchTerm))
     );
-  } 
-    displayPokemons(filteredPokemons);
-
+  }
+  displayPokemons(filteredPokemons);
 
   if (filteredPokemons.length === 0) {
     notFoundMessage.style.display = "block";
@@ -124,8 +122,13 @@ function handleSearch() {
 const closeButton = document.querySelector(".search-close-icon");
 closeButton.addEventListener("click", clearSearch);
 
+const filterButton = document.querySelector(".filtro-selector")
+filterButton.addEventListener("click", clearSearch)
+
+
 function clearSearch() {
   searchInput.value = "";
   displayPokemons(allPokemons);
+  searchInput.focus();
   notFoundMessage.style.display = "none";
 }
